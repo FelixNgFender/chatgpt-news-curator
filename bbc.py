@@ -9,35 +9,25 @@ import time
 driver = webdriver.Chrome()
 
 # Load the search results page
-url = "https://www.bbc.co.uk/search?q=chatgpt&d=HOMEPAGE_GNL"
+url = "https://www.bbc.co.uk/search?q=chatgpt"
 driver.get(url)
 
 links = []
 
 # Click the div until it cannot be clicked anymore
-while True:
-    try:
-        load_more_button = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "//div[@class='ssrcss-a11ok4-ArrowPageButtonContainer ep93jpm1']"))
-        )
-        time.sleep(1)  # Wait for new articles to load
-        # Extract the article URLs from the search results page
-        soup = BeautifulSoup(driver.page_source, 'html.parser')
+for i in range(1, 7):
+    load_more_button = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, "//a[@href='/search?q=chatgpt&d=SEARCH_PS&page=" + str(i) + "']"))
+    )
+    time.sleep(1)  # Wait for new articles to load
+    # Extract the article URLs from the search results page
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-        # Target the ul element
-        ul = soup.find("ul", {"class": "ssrcss-1020bd1-Stack e1y4nx260"})
-
-        # Target the li elements
-        lis = ul.find_all('article')
-
-        # Get all the links from the article elements
-        links += [li.find("a")["href"] for li in lis]
-        # print(links)
-        # print(len(links))
-        
-        load_more_button.click()
-    except:
-        break
+    # Target the a elements
+    anchors = soup.find_all("a", {"class": "ssrcss-rl2iw9-PromoLink e1f5wbog1"})
+    # Append list of links to the end of links
+    links.extend([anchor["href"] for anchor in anchors])
+    load_more_button.click()
 
 # Append the links to articles_url.txt, one link per line
 with open('articles_url.txt', 'a') as f:

@@ -14,11 +14,13 @@ Once you have activated the virtual environment, move on to the next section.
 pip install -r requirements.txt
 ```
 
+## Notes
+
+ - Make sure to run the scraping scripts only once as they append the links to the ```articles_url.txt``` file.
+
+ - You may have to change the encoding based on your system.
+
 ## Scraping The New York Times
-
-Make sure to run this only once as it appends the links to the ``articles_url.txt``` file.
-
-Note: You may have to change the encoding based on your system.
 
 ```bash 
 python nytimes.py
@@ -26,12 +28,14 @@ python nytimes.py
 
 ## Scraping The Washington Post
 
-Make sure to run this only once as it appends the links to the ```articles_url.txt``` file.
-
-Note: You may have to change the encoding based on your system.
-
 ```bash
 python washingtonpost.py
+```
+
+## Scraping BBC
+
+```bash
+python bbc.py
 ```
 
 ## Downloading Kaggle datasets using Kaggle API
