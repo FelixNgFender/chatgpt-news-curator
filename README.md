@@ -1,6 +1,6 @@
 # ChatGPT Dataset Collection
 
-This repository contains the dataset collection methods for ChatGPT-related mentions on Reddit, Twitter, and major news websites.
+This repository contains the dataset collection methods for ChatGPT-related mentions on Reddit, Twitter, and major news websites. The scraping scripts are prone to breaking due to changes in the websites' HTML structure. If you encounter any issues, please open an issue on this repository.
 
 ## Creating a virtual environment
 
@@ -36,6 +36,14 @@ python ./scrapers/washingtonpost.py
 
 ```bash
 python ./scrapers/bbc.py
+```
+
+## Retrieve News Articles
+
+Known issue: If you encounter a 403 error, delete all of the URLs in the ```articles_url.txt``` file and run the scraping scripts again. Then, try retrieving the news articles again.
+
+```bash
+python ./news_retrieval.py
 ```
 
 ## Downloading Kaggle datasets using Kaggle API
