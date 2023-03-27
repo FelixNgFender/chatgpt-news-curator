@@ -34,8 +34,6 @@ lis = ol.find_all('li')
 
 # Get all the links from the li elements
 links = [li.find("a")["href"] for li in lis]
-# print(links)
-# print(len(links))
 
 # Append the links to articles_url.txt, one link per line
 with open('articles_url.txt', 'a') as f:

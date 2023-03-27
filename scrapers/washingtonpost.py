@@ -34,8 +34,6 @@ articles = section.find_all('article')
 
 # Get all the links from the article elements
 links = [article.find("a")["href"] for article in articles]
-# print(links)
-# print(len(links))
 
 # Append the links to articles_url.txt, one link per line
 with open('articles_url.txt', 'a') as f:

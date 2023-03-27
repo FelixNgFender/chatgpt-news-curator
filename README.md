@@ -23,19 +23,19 @@ pip install -r requirements.txt
 ## Scraping The New York Times
 
 ```bash 
-python nytimes.py
+python ./scrapers/nytimes.py
 ```
 
 ## Scraping The Washington Post
 
 ```bash
-python washingtonpost.py
+python ./scrapers/washingtonpost.py
 ```
 
 ## Scraping BBC
 
 ```bash
-python bbc.py
+python ./scrapers/bbc.py
 ```
 
 ## Downloading Kaggle datasets using Kaggle API
