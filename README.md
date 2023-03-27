@@ -14,31 +14,25 @@ Once you have activated the virtual environment, move on to the next section.
 pip install -r requirements.txt
 ```
 
-## Downloading news articles using News API
+## Scraping The New York Times
 
-This section details the steps to download the news articles from major news websites using the News API and save them in the ```data``` folder of the project:
+Make sure to run this only once as it appends the links to the ``articles_url.txt``` file.
 
-### Prerequisites
+Note: You may have to change the encoding based on your system.
 
-- You need to have a News API account to download news articles from major news websites. You can sign up [here](https://newsapi.org/register).
-
-- Once you have signed up, you will receive an API key. Save this API key in a file called ```.env``` in the root folder of the project. Make sure to add ```.env``` to the ```.gitignore``` file if it is not already there.
-
-- The ```.env``` file should contain the following line:
-
-```bash
-NEWS_API_KEY=<your_api_key>
+```bash 
+python nytimes.py
 ```
 
-### Downloading the news articles
+## Scraping The Washington Post
 
-Run the following command in the terminal or command prompt to download the news articles:
+Make sure to run this only once as it appends the links to the ```articles_url.txt``` file.
+
+Note: You may have to change the encoding based on your system.
 
 ```bash
-python download_news_articles.py
+python washingtonpost.py
 ```
-
-This command will download the news articles and save them to ```news_retrieval.py``` in the ```data``` folder of your project.
 
 ## Downloading Kaggle datasets using Kaggle API
 
